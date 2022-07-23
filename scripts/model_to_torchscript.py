@@ -11,10 +11,10 @@ model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=True)
 model.eval()
 
 # An example input you would normally provide to your model's forward() method.
-example = [torch.rand(3, 300, 400), torch.rand(3, 500, 400)]
+example = torch.rand(2, 3, 800, 800)
 
-# Use torch.jit.trace to generate a torch.jit.ScriptModule via tracing.
-traced_script_module = torch.jit.trace(model, example)
+
+traced_script_module = torch.jit.script(model, example)
 
 # Save the TorchScript model
 traced_script_module.save("traced_resnet_model.pt")
