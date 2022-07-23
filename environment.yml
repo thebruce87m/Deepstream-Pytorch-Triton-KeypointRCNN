@@ -1,0 +1,9 @@
+name: ds-pyt-triton
+channels:
+- pytorch
+dependencies:
+- python
+- pytorch
+- torchvision
+- torchaudio
+- cpuonly
